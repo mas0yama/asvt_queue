@@ -39,6 +39,12 @@ class Client:
             time.sleep(self.TIMER)
 
 
+
+
+
 if __name__ == "__main__":
-    client = Client("")
-    client.Run()
+    #client = Client("")
+    #client.Run()
+    with open("vaterland.png", "rb") as f:
+        dat = f.read()
+    requests.post("http://127.0.0.1:8000/addToQueue?tag=5", files={'file': open("vaterland.png", "rb")})
