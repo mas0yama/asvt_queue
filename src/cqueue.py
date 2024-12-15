@@ -1,3 +1,4 @@
+import os
 import time
 
 UNIX_TIME_30 = 30 * 60 * 1000
@@ -27,12 +28,22 @@ class Queue:
         entry = self.queue.pop(0)
         return entry
 
-    def remove_entry(self, entry):
+    def remove_entry(self, entry ):
         self.queue.remove(entry)
+        print("Removed entry from queue")
+        os.system("rm "+entry.photo)
 
+    def remove_by_tag(self, tag):
+        for entry in self.queue:
+            if entry.tag == tag:
+                self.queue.remove(entry)
+
+
+    def __iter__(self):
+        return iter(self.queue)
 
 def update_queue(queue: Queue):
     cur_time = time.time()
     for entry in queue.queue:
-        if cur_time - entry.timestamp >= UNIX_TIME_30:
+        if cur_time - entry.timestamp >= 50:
             queue.remove_entry(entry)
