@@ -38,6 +38,9 @@ class Queue:
             if entry.tag == tag:
                 self.queue.remove(entry)
 
+    def get_next_entry(self):
+        r = self.queue.pop(0)
+
 
     def __iter__(self):
         return iter(self.queue)

@@ -45,6 +45,7 @@ def post_add_to_queue(tag, path_to_photo):
     print(r)
     return r
 
+
 def get_remove_from_queue(tag):
     r = requests.get(DOMAIN + f"/removeFromQueue?tag={tag}")
 

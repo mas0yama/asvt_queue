@@ -23,13 +23,23 @@ class Handler(BaseHTTPRequestHandler):
             self.bad_auth_response()
             return
 
-
-
         match self.path[:self.path.find("?")].split("/")[1]:
 
             case "removeFromQueue":
                 try:
                     self.__remove_from_queue()
+                except Exception as e:
+                    print(e)
+            case "getNextFromQueue":
+                try:
+                    entry = self.__get_next_from_queue()
+                    self.send_response(200)
+                    self.send_header('Content-type', 'multipart/form-data')
+                    file = b''
+                    with open(f"{entry.photo}", "rb") as f:
+                        file = f.read()
+                    self.wfile.write(file)
+
                 except Exception as e:
                     print(e)
 
@@ -87,6 +97,9 @@ class Handler(BaseHTTPRequestHandler):
         tag = params.get('tag')
         self.server.queue.remove_by_tag(tag)
 
+    def  __get_next_from_queue(self):
+        entry = self.server.queue.get_next_entry()
+        return entry
 
     def log_message(self, format, *args):
         with open("server_log.log", "a") as file:
