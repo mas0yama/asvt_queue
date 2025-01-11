@@ -1,0 +1,18 @@
+{% extends 'base/list.html' %}
+
+{% block page_title %}R Queue | Очередь{% endblock %}
+
+{% block add_button %}
+{% if is_manager %}
+    <div class="mb-3 mr-3 d-flex">
+        <a href="{% url 'call_next' %}" class="btn btn-primary">Вызвать следующего</a>
+    </div>
+    <p>Пояснение...</p>
+{% else %}
+    <div class="mb-3 mr-3 d-flex">
+        <a href="{% url 'queue_add' %}" class="btn btn-primary">Встать в очередь</a>
+    </div>
+    <p>Смотрите в камеру...</p>
+{% endif %}
+{% endblock %}
+{% block empty_mess %}<h2>Очередь пуста.</h2>{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base/detail.html' %}
+
+{% block page_title %}R Queue | Встать в очередь{% endblock %}
+{% block page_name %}{{ object.name }}{% endblock %}
+
+{% block text_content %}
+    {{ answer_text }} {{ left_tile }}
+{% endblock %}
