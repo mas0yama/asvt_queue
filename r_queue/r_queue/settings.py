@@ -32,7 +32,10 @@ SECRET_KEY = os.environ['APP_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if not DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -118,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -138,11 +141,12 @@ STATICFILES_DIRS = []
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = ''   # страница списка
-LOGOUT_REDIRECT_URL = ''  # страница списка
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'queue_manage'
+LOGOUT_REDIRECT_URL = 'queue_list'
 OPEN_URLS = ['queue_list']
 
 # Queue settings
 
 WAIT_TIME_MINUTES = 30
-WAIT_TIME_SECONDS = WAIT_TIME_MINUTES * 60
+WAIT_TIME_SECONDS = int(WAIT_TIME_MINUTES * 60)
