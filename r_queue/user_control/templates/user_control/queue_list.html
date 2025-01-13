@@ -13,14 +13,7 @@
         </div>
     </div>
 {% else %}
-    <div class="row">
-        <div class="col-md-auto d-flex">
-            <a href="{% url 'queue_add' %}" class="btn btn-primary">Встать в очередь</a> 
-        </div>
-        <div class="col col-md">
-            <h3 class="mb-0">Смотрите в камеру. Убедитесь, что ваше лицо хорошо видно и оно ничем не закрыто.</h3>
-        </div>
-    </div>
+    <h3 class="mb-0">Смотрите в камеру. Убедитесь, что ваше лицо хорошо видно и оно ничем не закрыто.</h3>
 {% endif %}
 {% endblock %}
 {% block empty_mess %}<h2>Очередь пуста.</h2>{% endblock %}

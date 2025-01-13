@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Person',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('photo', models.TextField()),
+                ('path', models.TextField(unique=True, verbose_name='Путь к фото')),
             ],
         ),
     ]

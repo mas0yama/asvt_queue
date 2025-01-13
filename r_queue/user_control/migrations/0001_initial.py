@@ -17,9 +17,10 @@ class Migration(migrations.Migration):
             name='Queue',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.TextField(max_length=10, verbose_name='Номер')),
+                ('number', models.TextField(max_length=10, unique=True, verbose_name='Номер')),
                 ('timestamp', models.DateTimeField(auto_now_add=True, verbose_name='Время добавления')),
-                ('person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='queue_person_match', to='persons.person', verbose_name='Человек')),
+                ('person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='queue_person_match', to='persons.person', unique=True, verbose_name='Человек')),
+                ('cabinet', models.CharField(max_length=10, default='502ю', verbose_name='Кабинет')),
             ],
         ),
     ]
