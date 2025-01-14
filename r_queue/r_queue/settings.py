@@ -31,8 +31,9 @@ SECRET_KEY = os.environ['APP_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+PUBLIC = True
 
-if not DEBUG:
+if PUBLIC:
     ALLOWED_HOSTS = ['*']
 else:
     ALLOWED_HOSTS = []
