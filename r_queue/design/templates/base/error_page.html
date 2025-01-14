@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-3 mr-3">
+                <div class="card-body">
+                    {% block error_text %}
+                    {% endblock error_text %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

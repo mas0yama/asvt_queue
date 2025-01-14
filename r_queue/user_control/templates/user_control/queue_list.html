@@ -1,0 +1,19 @@
+{% extends 'base/list.html' %}
+
+{% block page_title %}R Queue | Очередь{% endblock %}
+
+{% block add_button %}
+{% if is_manager %}
+    <div class="row">
+        <div class="col-md-auto d-flex">
+            <a href="{% url 'queue_call_next' %}" class="btn btn-primary">Вызвать следующего</a> 
+        </div>
+        <div class="col-md">
+            <h3 class="mb-0">Человек, стоящий в очереди первым, будет приглашен и удален из очереди.</h3>
+        </div>
+    </div>
+{% else %}
+    <h3 class="mb-0">Смотрите в камеру. Убедитесь, что ваше лицо хорошо видно и оно ничем не закрыто.</h3>
+{% endif %}
+{% endblock %}
+{% block empty_mess %}<h2>Очередь пуста.</h2>{% endblock %}
