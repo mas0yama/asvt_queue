@@ -1,10 +1,12 @@
 # Запуск:
 1. Открыть проект в IDE
 2. Создать виртуальное окружение `venv` (способ зависит от платформы и IDE)
-3. Установить все пакеты из файла `requirements.txt` (`pip install requirements.txt` или `pip install <package==version>` для каждого пакета)
+3. Установить все пакеты из файла `requirements.txt` (`pip install -r requirements.txt` или `pip install <package==version>` для каждого пакета)
 4. Создать в корне проекта файл `.env`, вписать туда `APP_KEY=<secret key>`
-5. Выполнить `python manage.py createsuperuser`, ввести желаемые логин и пароль, почту (логин и пароль требуется запомнить)
-6. Выполнить `python manage.py runserver`. Он будет иметь адрес по умолчанию: http://127.0.0.1:8000
+5. Вписать в `.env` `PICTURES_STORAGE=<>` - путь к папке, где будут храниться все фото 
+6. Выполнить `python manage.py createsuperuser`, ввести желаемые логин и пароль, почту (логин и пароль требуется запомнить)
+7. Выполнить `python manage.py migrate`
+7. Выполнить `python manage.py runserver`. Он будет иметь адрес по умолчанию: http://127.0.0.1:8000
 
 # Доступ к странице менеджера:
 1. Ввести в адресной строке http://127.0.0.1:8000/login 

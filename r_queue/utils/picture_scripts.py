@@ -12,8 +12,6 @@ def is_face_on_picture(image_path):
 
 
 def is_similar(paths, picture_path):
-    print(paths)
-    print(picture_path)
     for path in paths:
         res = DeepFace.verify(path, picture_path)
         if not res['verified']:

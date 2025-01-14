@@ -46,6 +46,7 @@ def call_next_person(request):
     if not queue:
         return prepare_render('Очередь пустая, нельзя вызвать человека.')
     person_to_call = queue.first()
+    os.remove(person_to_call.person.path)
     person_to_call.person.delete()
     person_to_call.delete()
     return prepare_render(f'Вы вызвали человека с номером: {person_to_call.number}.')

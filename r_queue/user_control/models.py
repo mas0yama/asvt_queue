@@ -5,8 +5,6 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 
-from persons.models import Person
-
 
 class Queue(models.Model):
     number = models.TextField(verbose_name='Номер', max_length=10, unique=True)
